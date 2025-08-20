@@ -1,0 +1,92 @@
+import pandas as pd:
+sirve para importar la librería pandas en Python y asignarle el alias pd, que es una forma corta y práctica de escribirla
+Es una de las librerías más usadas en Python para análisis y manipulación de datos. Permite trabajar con tablas, hojas de cálculo, CSV,
+import matplotlib.pyplot as plt:
+Es un conjunto de funciones que permiten crear gráficos y visualizaciones de datos (líneas, barras, tortas, dispersión, histogramas, etc.).
+df_temp = pd.read_csv("temperaturas_argentina_2025_enero_a_agosto.csv")
+sirve para leer un archivo CSV:
+df_temp["Fecha"] = pd.to_datetime(df_temp["Fecha"])
+sirve para convertir la columna "Fecha"
+
+promedio_max = df_temp.groupby("Provincia")["Temperatura Máxima (°C)"].mean().sort_values(ascending=False)
+print("\n--- Promedio de temperatura máxima por provincia ---")
+print(promedio_max):
+Ese bloque de código lo que hace es calcular, ordenar y mostrar en la terminal el promedio de la temperatura máxima de cada provincia.
+
+promedio_max.plot(kind="bar", color="red", figsize=(8,6), title="Promedio Temperatura Máxima (ene-ago 2025)")
+plt.ylabel("°C")
+plt.xlabel("Provincia")
+plt.xticks(rotation=75)
+plt.tight_layout()
+plt.savefig("promedio_max.png")
+plt.show():
+Ese bloque de código sirve para crear un gráfico de barras rojas que muestra el promedio de la temperatura máxima por provincia entre enero y agosto 2025
+
+promedio_min = df_temp.groupby("Provincia")["Temperatura Mínima (°C)"].mean().sort_values(ascending=False)
+print("\n--- Promedio de temperatura mínima por provincia ---")
+print(promedio_min): 
+Ese bloque sirve para sacar el promedio de las temperaturas mínimas de cada provincia y listarlas en orden de la más templada a la más
+ fría, mostrando el resultado en la terminal.
+promedio_min.plot(kind="bar", color="blue", figsize=(8,6), title="Promedio Temperatura Mínima (ene-ago 2025)")
+
+plt.ylabel("°C")
+plt.xlabel("Provincia")
+plt.xticks(rotation=75)
+plt.tight_layout()
+plt.savefig("promedio_min.png")
+plt.show():
+Este bloque de código sirve para crear un gráfico de barras azules con el promedio de temperaturas mínimas por provincia (enero–agosto 2025), 
+guardarlo como imagen y mostrarlo en pantalla.
+
+print("\n--- Resumen ---")
+print("Provincia con más días calurosos extremos:", conteo["Caluroso Extremo"].idxmax())
+print("Provincia con más días fríos extremos:", conteo["Frío Extremo"].idxmax())
+print("Provincia con mayor promedio de temperatura máxima:", promedio_max.idxmax())
+print("Provincia con mayor promedio de temperatura mínima:", promedio_min.idxmax()):
+se bloque de código sirve para dar un informe final rápido y claro, mostrando qué provincias se destacan en cada categoría:
+
+Más días extremos calurosos.
+
+Más días extremos fríos.
+
+Promedio de máximas más alto.
+
+Promedio de mínimas más alto. 
+OTRO ARCHIVO 
+ste script descarga de internet (API Open-Meteo) las temperaturas máximas y mínimas diarias de todas las provincias argentinas entre enero y agosto de 2025, 
+y las guarda en un archivo CSV para que después lo puedas analizar y graficar.
+
+INDEX.HTML
+ndica que es un documento HTML en español.
+meta charset="UTF-8" → permite que se vean bien las tildes y caracteres especiales.
+meta name="viewport"... → hace que la página se adapte a celulares y pantallas chicas.
+<title> → título que aparece en la pestaña del navegador.
+<link rel="stylesheet" href="styles.css"> → conecta con el archivo de estilos CSS para dar diseño
+
+<body> → todo el contenido visible de la página.
+<header> → encabezado de la página.
+<h1> → título principal grande de la web.
+<main> → parte central de la página.
+<section class="grafico"> → cada sección muestra un gráfico distinto.
+<h2> → subtítulo.
+<img src="promedio_max.png"> → inserta la imagen del gráfico de promedios máximos que generaste en Python.
+alt="..." → texto alternativo en caso de que no se cargue la imagen.
+y lo mismo se repite en :<h2>Promedio Temperatura Mínima</h2>
+<img src="promedio_min.png" alt="Promedio Temperatura Mínima">
+
+<h2>Cantidad de Días Extremos</h2>
+<img src="dias_extremos.png" alt="Días Extremos">
+<footer> → pie de página.
+Explica de dónde salió la información (fuente de datos).
+<a href="..." target="_blank"> → enlace que abre la web en otra pestaña.
+
+En resumen:
+Este archivo HTML sirve como página de presentación donde mostraste:
+El gráfico de promedio de temperaturas máximas.
+El gráfico de promedio de temperaturas mínimas.
+El gráfico de cantidad de días extremos.
+Además incluye título, subtítulos, y un pie con la fuente de datos (open-meteo.com).
+
+
+
+
